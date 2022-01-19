@@ -4,7 +4,7 @@ logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
+dist
 todo.txt
 # Runtime data
 pids
@@ -75,3 +75,7 @@ typings/
 
 # FuseBox cache
 .fusebox/
+dist/controller/defaultRoute.js
+dist/index.js
+dist/models/idModel.js
+src/index.ts
