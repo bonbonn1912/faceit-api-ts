@@ -5,4 +5,6 @@ dotenv.config();
 
 import { SECRETS } from './config/env';
 
-app.listen(SECRETS.PORT, ()=>{console.log('listening on port '+SECRETS.PORT)});
+const PORT = SECRETS.PORT || 3000;
+
+app.listen(PORT, ()=>{console.log('listening on port '+PORT)});
