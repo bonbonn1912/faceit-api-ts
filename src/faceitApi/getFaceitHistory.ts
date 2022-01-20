@@ -12,7 +12,7 @@ export default async function getMatchHistory(user_id: string, limit: number): P
             }
         }).then((response: AxiosResponse) => { 
             isWinner(response, user_id).then((historyString: string) => {
-                if(historyString.length < limit*2){
+                if(historyString.length < (limit*2-1)){
                    resolve(`Your history is not long enough to show your requested ${limit} games`);
                 }else{
                     resolve(historyString);
