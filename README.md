@@ -7,8 +7,8 @@ This App was made to provide useful Endpoint for Twitch Bots without dealing wit
   
 | Endpoints     | Method | Old Version        | New Version        |
 |---------------|--------|--------------------|--------------------|
-| /Elo          | GET    | :white_check_mark: | :white_check_mark: |
-| /Checkelo     | GET    | :white_check_mark: | :white_check_mark: |
+| /elo          | GET    | :white_check_mark: | :white_check_mark: |
+| /checkelo     | GET    | :white_check_mark: | :white_check_mark: |
 | /matchistory  | GET    | :white_check_mark: | :white_check_mark: |
 | /currentmatch | GET    | :white_check_mark: | :x:                |
 | /newwebhook   | POST   | :white_check_mark: | :x:                |
@@ -18,9 +18,9 @@ This App was made to provide useful Endpoint for Twitch Bots without dealing wit
 
 | Paramter ->   | username | limit    | faceit_id |
 |---------------|----------|----------|-----------|
-| /Elo          | required | :x:      | :x:       |
-| /Checkelo     | required | :x:      | :x:       |
-| /matchistory  | required | required | :x:       |
+| /elo          | required | :x:      | :x:       |
+| /checkelo     | required | :x:      | :x:       |
+| /matchhistory  | required | required | :x:       |
 | /currentmatch | :x:      | :x:      | required  |
 
 ## Example request
