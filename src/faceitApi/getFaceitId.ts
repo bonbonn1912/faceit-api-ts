@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import { SECRETS } from '../config/env';
 import { PlayerModel } from '../interfaces/idModel';
 
@@ -10,7 +10,7 @@ export default async function getPlayerInfo(nickname: string): Promise<PlayerMod
             headers: {
                 'Authorization': `Bearer ${SECRETS.API_KEY}`
             }
-        }).then((response) => {
+        }).then((response: AxiosResponse) => {
             if (response.status === 200) {
                 const playerModel: PlayerModel = {
                     isValid: true,
@@ -20,7 +20,7 @@ export default async function getPlayerInfo(nickname: string): Promise<PlayerMod
                 };
                 resolve(playerModel);
             }
-        }).catch((error) => {
+        }).catch((error: AxiosResponse) => {
             const playerModel: PlayerModel = {
                 isValid: false,
                 id: "Invalid User",

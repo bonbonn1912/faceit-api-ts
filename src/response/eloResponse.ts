@@ -6,7 +6,7 @@ export default function getAnswerString(playerModel: PlayerModel): string {
    if(missingElo.level === 11){
     return "Invalid Query";
    }else if(missingElo.isMax){
-    return `${playerModel.username} is Level 10 with ${playerModel.elo} Elo`;
+    return `${playerModel.username} is Level 10 with ${playerModel.elo} Elo.`;
    }else{
        return `${playerModel.username} is Level ${missingElo.level} with ${playerModel.elo} Elo. Elo needed for Level ${missingElo.level + 1}: ${missingElo.missingElo}.`;
    }

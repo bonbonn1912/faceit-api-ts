@@ -10,6 +10,8 @@ app.get("/elo", getController.elo);
 
 app.get("/matchhistory", getController.matchhistory);
 
+app.get("/checkelo", getController.checkElo);
+
 app.get("/*", defaultController.handleRoute);
 
 
