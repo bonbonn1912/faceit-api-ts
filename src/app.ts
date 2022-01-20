@@ -8,6 +8,8 @@ var app: Application = express();
 
 app.get("/elo", getController.elo);
 
+app.get("/matchhistory", getController.matchhistory);
+
 app.get("/*", defaultController.handleRoute);
 
 

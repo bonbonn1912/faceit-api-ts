@@ -16,3 +16,8 @@ export const elo = (req : Request, res : Response) => {
     });
    }
 };
+
+
+export const matchhistory = (req : Request, res : Response) => {
+    res.send("Hello");
+}
