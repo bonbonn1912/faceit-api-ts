@@ -14,14 +14,14 @@ This App was made to provide useful Endpoint for Twitch Bots without dealing wit
 | /newwebhook   | POST   | :white_check_mark: | :white_check_mark: |
 
 
-## Endpoint Parameter
+## GET Endpoints
 
-| Paramter ->   | username | limit    | faceit_id |
-|---------------|----------|----------|-----------|
-| /elo          | required | :x:      | :x:       |
-| /checkelo     | required | :x:      | :x:       |
-| /matchhistory | required | required| :x:       |
-| /currentmatch | :x:      | :x:      | required  |
+| Paramter ->   | username | limit    | faceit_id | key       |
+|---------------|----------|----------|-----------|-----------|
+| /elo          | required | :x:      | :x:       |:x:       |
+| /checkelo     | required | :x:      | :x:       |:x:       |
+| /matchhistory | required | required| :x:        |:x:        |
+| /getmatch | :x:      | :x:      | :x:      |required      |
 
 ## Example request
 #### /elo?username=BonBonn-_-
