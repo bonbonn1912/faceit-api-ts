@@ -20,7 +20,7 @@ This App was made to provide useful Endpoint for Twitch Bots without dealing wit
 
 ## GET Endpoints
 
-| Paramter ->   | username | limit    | faceit_id | key*      |
+| Parameter ->   | username | limit    | faceit_id | key*      |
 |---------------|----------|----------|-----------|-----------|
 | /elo          | required | :x:      | :x:       |:x:       |
 | /checkelo     | required | :x:      | :x:       |:x:       |
