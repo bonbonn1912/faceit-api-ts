@@ -1,4 +1,4 @@
-# Custom Faceit REST API (TS)
+# Custom Faceit REST API (TS) v 1.0.0
 This application is a TypeScript rebuild of [BonBonn Faceit Api](https://bonbonn-faceitapi.herokuapp.com/).
 After full migration the TS version will completely replace the old one with identical endpoints.
 This App was made to provide useful Endpoint for Twitch Bots without dealing with the authentication.
@@ -10,8 +10,8 @@ This App was made to provide useful Endpoint for Twitch Bots without dealing wit
 | /elo          | GET    | :white_check_mark: | :white_check_mark: |
 | /checkelo     | GET    | :white_check_mark: | :white_check_mark: |
 | /matchistory  | GET    | :white_check_mark: | :white_check_mark: |
-| /currentmatch | GET    | :white_check_mark: | :x:                |
-| /newwebhook   | POST   | :white_check_mark: | :x:                |
+| /currentmatch | GET    | :white_check_mark: | :white_check_mark: |
+| /newwebhook   | POST   | :white_check_mark: | :white_check_mark: |
 
 
 ## Endpoint Parameter
@@ -20,7 +20,7 @@ This App was made to provide useful Endpoint for Twitch Bots without dealing wit
 |---------------|----------|----------|-----------|
 | /elo          | required | :x:      | :x:       |
 | /checkelo     | required | :x:      | :x:       |
-| /matchhistory  | required | required | :x:       |
+| /matchhistory | required | required| :x:       |
 | /currentmatch | :x:      | :x:      | required  |
 
 ## Example request
