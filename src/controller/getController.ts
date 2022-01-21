@@ -3,6 +3,7 @@ import getPlayerInfo from '../faceitApi/getFaceitId';
 import getMatchHistory from '../faceitApi/getFaceitHistory';
 import getLastFiveGames from '../faceitApi/getLastFiveGames';
 import getAnswerString from '../response/eloResponse';
+import {getMatchroom} from './matchroom'
 import { PlayerModel } from '../interfaces/idModel';
 import * as check from './checkQueryParameter';
 import { AxiosResponse } from 'axios';
@@ -66,4 +67,14 @@ export const checkElo = (req: Request, res: Response) => {
             res.send("Username not found. Please try again");
         });
     }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+export const getMatch = (req: Request, res: Response) => {
+    console.log("trying to key match with key: " + req.query.key)
+    var answer:string | undefined = getMatchroom(req.query.key as string);
+    res.send(answer)
 }
