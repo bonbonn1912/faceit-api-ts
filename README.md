@@ -20,12 +20,12 @@ This App was made to provide useful Endpoint for Twitch Bots without dealing wit
 
 ## GET Endpoints
 
-| Parameter ->   | username | limit    | faceit_id | key*      |
-|---------------|----------|----------|-----------|-----------|
-| /elo          | required | :x:      | :x:       |:x:       |
-| /checkelo     | required | :x:      | :x:       |:x:       |
-| /matchhistory | required | required| :x:        |:x:        |
-| /getmatch | :x:      | :x:      | :x:      |required      |
+| Parameter ->   | username | limit    | key*      |
+|---------------|----------|----------|-----------|
+| /elo          | required | :x:      | :x:       |
+| /checkelo     | required | :x:      | :x:       |
+| /matchhistory | required | required| :x:        |
+| /getmatch | :x:      | :x:      | required      |
 
 *key = player_id from faceit v4 endpoint (/player)
 
