@@ -1,7 +1,11 @@
 # Custom Faceit REST API (TS) v 1.0.0
 This application is a TypeScript rebuild of [BonBonn Faceit Api](https://bonbonn-faceitapi.herokuapp.com/).
-After full migration the TS version will completely replace the old one with identical endpoints.
+After full migration ([Preview](https://bonbonn-faceitapi-ts.herokuapp.com/)) the TS version will completely replace the old one with identical endpoints. 
 This App was made to provide useful Endpoint for Twitch Bots without dealing with the authentication.
+## Setup
+1. clone this repository and create ".env" file according to ".env.example"
+2. execute -> npm run build & npm run start
+
 
 ## Migration status
   
