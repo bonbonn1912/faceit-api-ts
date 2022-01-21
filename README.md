@@ -29,7 +29,9 @@ This App was made to provide useful Endpoint for Twitch Bots without dealing wit
 
 |    | header | value|body|
 |---------------|----------|----------|----------|
-| /match          |  Authorization| player_id|valid faceit webhooks|
+| /match          |  Authorization| player_id|Valid Faceit Events*|
+
+*Its recommended to enable all Events to catch all cases of game abortion
 
 
 
