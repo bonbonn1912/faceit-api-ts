@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "copy": "copyfiles -u 2 ./src/views/index.html ./dist/views/",
-    "build": "tsc && copyfiles -u 2 ./src/views/index.html ./dist/views/", 
+    "build": "tsc && copyfiles -u 2 ./src/views/index.html ./dist/views/",
     "start": "node ./dist/index.js"
   },
   "repository": {
@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/bonbonn1912/faceit-api-ts#readme",
   "dependencies": {
+    "@types/body-parser": "^1.19.2",
     "axios": "^0.25.0",
     "body-parser": "^1.19.1",
     "dotenv": "^14.2.0",
