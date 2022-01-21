@@ -1,23 +1,65 @@
-<h1> Please use one of the following Endpoints :)</h1>
-<br>
-<div class="getEndpoints">
-    <h2>GET Endpoints</h2>
-    <div class="checkelo">
-        <h3> /checkelo  </h3>
-        <p>Parameter: username, limit (default limit = 5 Games)</p>
-    </div>
-    <br>
-    <br>
-    <div class="matchhistory">
-        <h3> /matchhistory  </h3>
-        <p>Parameter: username, limit (default limit = 5 Games)</p>
-    </div>
-    <br>
-    <div class="elo">
-        <h3> /elo  </h3>
-        <p>Parameter: username</p>
-    </div>
-</div>
-<br>
-<br>
-<br>
+<h1>Custom Faceit REST API (TS) v 1.0.0</h1>
+<h2>This App was made to provide useful Endpoint for Twitch Bots without dealing with the authentication.</h2>
+
+<h3>GET Endpoints</h3>
+<table>
+<thead>
+<tr>
+<th>Parameter -&gt;</th>
+<th>username</th>
+<th>limit</th>
+<th>key*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/elo</td>
+<td>required</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>/checkelo</td>
+<td>required</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>/matchhistory</td>
+<td>required</td>
+<td>required</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>/getmatch</td>
+<td>❌</td>
+<td>❌</td>
+<td>required</td>
+</tr>
+</tbody>
+</table>
+<p>*key = player_id from faceit v4 endpoint (/player)</p>
+<h3>POST Endpoints</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>header</th>
+<th>value</th>
+<th>body</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/match</td>
+<td>Authorization</td>
+<td>player_id</td>
+<td>Valid Faceit Events*</td>
+</tr>
+</tbody>
+</table>
+<p>*Its recommended to enable all Events to catch all cases of game abortion</p>
+<h3>Example request</h3>
+<h4>/elo?username=BonBonn-_-</h4>
+<h4>/checkelo?username=BonBonn-_-</h4>
+<h4>/matchhistory?username=BonBonn-_-&amp;limit=5</h4>
