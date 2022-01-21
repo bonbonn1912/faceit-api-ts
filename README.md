@@ -27,9 +27,9 @@ This App was made to provide useful Endpoint for Twitch Bots without dealing wit
 
 ## POST Endpoints
 
-|    | header | value|
-|---------------|----------|----------|
-| /match          |  Authorization| player_id|
+|    | header | value|body|
+|---------------|----------|----------|----------|
+| /match          |  Authorization| player_id|valid faceit webhooks|
 
 
 
