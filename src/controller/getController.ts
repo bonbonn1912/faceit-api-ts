@@ -37,7 +37,7 @@ export const matchhistory = (req: Request, res: Response) => {
                 res.send(`${req.query.username}'s last ${parseInt(req.query.limit as string)} Games: ${historyString}`);
             })
         }).catch((err : AxiosResponse) => {
-            res.send("Username not found. Please try again");
+            res.send(err);
         }); 
     } else {
         res.send("Invalid Parameter. Please try again");
