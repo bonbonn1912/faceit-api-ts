@@ -31,7 +31,7 @@ export function getMatchroom(key: string): string | undefined {
     if (activeMatches.has(key)) {
         return activeMatches.get(key)?.getString();;
     }
-    return "Match not found";
+    return "This User is currently not in a matchroom";
 }
 
 function setTeamnames(teams: any, key: string): void {
