@@ -18,6 +18,8 @@ app.get("/checkelo", getController.checkElo);
 
 app.get("/getmatch", getController.getMatch);
 
+app.get("/internal/api/getallcurrentgames", getController.getAllMatches)
+
 app.post("/match",postController.registerMatchroom); 
 
 app.get("/*", defaultController.handleRoute);
