@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "copy": "copyfiles -u 2 ./src/views/index.html ./dist/views/",
-    "build-local": "npm install && tsc && copyfiles -u 2 ./src/views/index.html ./dist/views/ && cd ./src/frontend && npm run build",
+    "prod": "del-cli --force ./dist && tsc && copyfiles -u 2 ./src/views/index.html ./dist/views/ && cd ./src/frontend && npm run build && cd ../../dist && node index.js",
+    "env": "npm install && tsc && copyfiles -u 2 ./src/views/index.html ./dist/views/ && cd ./src/frontend && npm run build",
     "build": "npm install && tsc && copyfiles -u 2 ./src/views/index.html ./dist/views/ && cd ./src/frontend && npm run build",
     "start": "node ./dist/index.js"
   },
@@ -36,6 +37,7 @@
     "body-parser": "^1.19.1",
     "core-js": "^3.6.5",
     "cors": "^2.8.5",
+    "del-cli": "^4.0.1",
     "dotenv": "^14.2.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^7.0.0",
