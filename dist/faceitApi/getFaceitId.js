@@ -1,0 +1,47 @@
+"use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const axios_1 = __importDefault(require("axios"));
+const env_1 = require("../config/env");
+function getPlayerInfo(nickname) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const url = `https://open.faceit.com/data/v4/players?nickname=${nickname}`;
+        return new Promise((resolve, reject) => {
+            axios_1.default.get(url, {
+                headers: {
+                    'Authorization': `Bearer ${env_1.SECRETS.API_KEY}`
+                }
+            }).then((response) => {
+                if (response.status === 200) {
+                    const playerModel = {
+                        isValid: true,
+                        id: response.data.player_id,
+                        username: response.data.nickname,
+                        elo: response.data.games.csgo.faceit_elo
+                    };
+                    resolve(playerModel);
+                }
+            }).catch((error) => {
+                const playerModel = {
+                    isValid: false,
+                    id: "Invalid User",
+                    username: "Invalid User",
+                    elo: 0
+                };
+                reject(playerModel);
+            });
+        });
+    });
+}
+exports.default = getPlayerInfo;
