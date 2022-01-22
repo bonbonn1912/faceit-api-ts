@@ -19,7 +19,7 @@ export const elo = (req: Request, res: Response) => {
             var answer: string = getAnswerString(data)
             res.send(answer);
         }).catch((err : AxiosResponse) => {
-            res.send("Username not found. Please try again");
+            res.send(err);
         });
     }
 };
@@ -64,7 +64,7 @@ export const checkElo = (req: Request, res: Response) => {
             });
         }
         ).catch((err : AxiosResponse) => {
-            res.send("Username not found. Please try again");
+            res.send(err);
         });
     }
 }
