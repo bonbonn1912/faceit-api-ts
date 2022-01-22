@@ -20,10 +20,10 @@ export default async function getPlayerInfo(nickname: string): Promise<PlayerMod
                 };
                 resolve(playerModel);
             }
-        }).catch((error: AxiosResponse) => {
-            const playerModel: PlayerModel = {
+        }).catch((error) => {
+               const playerModel: PlayerModel = {
                 isValid: false,
-                id: "Invalid User",
+                id: error,
                 username: "Invalid User",
                 elo: 0
             };
