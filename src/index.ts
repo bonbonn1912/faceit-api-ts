@@ -4,4 +4,4 @@ import { SECRETS } from './config/env';
 
 const PORT = SECRETS.PORT || 9999;
 
-app.listen(PORT, ()=>{console.log('listening on port '+PORT)});
+app.listen(PORT, ()=>{console.log('listening on port '+PORT + ' running in : ' +process.env.NODE_ENV)});
