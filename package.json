@@ -36,6 +36,7 @@
     "body-parser": "^1.19.1",
     "core-js": "^3.6.5",
     "cors": "^2.8.5",
+    "@types/cors": "^2.8.12",
     "del-cli": "^4.0.1",
     "dotenv": "^14.2.0",
     "eslint": "^6.7.2",
