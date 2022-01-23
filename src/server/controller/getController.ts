@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import getPlayerInfo from '../faceitApi/getFaceitId';
-import getMatchHistory from '../faceitApi/getFaceitHistory';
-import getLastFiveGames from '../faceitApi/getLastFiveGames';
+import getPlayerInfo from '../faceit/getFaceitId';
+import getMatchHistory from '../faceit/getFaceitHistory';
+import getLastFiveGames from '../faceit/getLastFiveGames';
 import getAnswerString from '../response/eloResponse';
 import {getMatchroom} from './matchroom'
 import { PlayerModel } from '../interfaces/idModel';

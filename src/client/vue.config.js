@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-    outputDir: path.resolve(__dirname, '../../dist/frontend'),
+    outputDir: path.resolve(__dirname, '../../dist/client'),
     devServer : {
         proxy : {
             '/internal/api/getallcurrentgames' : {

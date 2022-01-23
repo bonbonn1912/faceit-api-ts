@@ -6,10 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "copy": "copyfiles -u 2 ./src/views/index.html ./dist/views/",
-    "prod": "del-cli --force ./dist && tsc && copyfiles -u 2 ./src/views/index.html ./dist/views/ && cd ./src/frontend && npm run build && cd ../../dist && node index.js",
+    "prod": "set NODE_ENV=production && del-cli --force ./dist && tsc && cd ./src/client && npm run build && cd ../../dist/server && node index.js",
     "env": "npm install && tsc && copyfiles -u 2 ./src/views/index.html ./dist/views/ && cd ./src/frontend && npm run build",
-    "build": "npm install && tsc && copyfiles -u 2 ./src/views/index.html ./dist/views/ && cd ./src/frontend && npm run build",
-    "start": "node ./dist/index.js"
+    "start": "set NODE_ENV=production && del-cli --force ./dist && tsc && cd ./src/client && npm run build && cd ../../dist/server && node index.js"
   },
   "repository": {
     "type": "git",

@@ -1,6 +1,6 @@
 import { MatchRoom } from '../interfaces/matchroom';
-import { getMatchFromFaceit } from '../faceitApi/getMatchRoom';
-import getPlayerElo from '../faceitApi/getFaceitElo';
+import { getMatchFromFaceit } from '../faceit/getMatchRoom';
+import getPlayerElo from '../faceit/getFaceitElo';
 import { AxiosResponse } from 'axios';
 
 var activeMatches = new Map<string, MatchRoom>();

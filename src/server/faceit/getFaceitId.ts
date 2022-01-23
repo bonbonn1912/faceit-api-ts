@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
-import { SECRETS } from '../config/env';
+import { SECRETS } from '../../config/env';
 import { PlayerModel } from '../interfaces/idModel';
 
 

@@ -10,7 +10,7 @@ var app: Application = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(__dirname + "/frontend/"));
+app.use(express.static(__dirname + "./../client/"));
 
 app.get("/elo", getController.elo);
 
@@ -24,10 +24,6 @@ app.get("/internal/api/getallcurrentgames", getController.getAllMatches);
 
 app.post("/match", postController.registerMatchroom);
 
-app.get("/home", defaultController.handleRoute);
-
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/frontend/index.html");
-});
+app.get("/", defaultController.handleRoute);
 
 export = app;
