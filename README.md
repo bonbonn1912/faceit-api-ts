@@ -14,8 +14,10 @@ This App was made to provide useful Endpoint for Twitch Bots without dealing wit
 | /elo          | GET    | :white_check_mark: | :white_check_mark: |
 | /checkelo     | GET    | :white_check_mark: | :white_check_mark: |
 | /matchistory  | GET    | :white_check_mark: | :white_check_mark: |
-| /currentmatch | GET    | :white_check_mark: | :white_check_mark: |
-| /newwebhook   | POST   | :white_check_mark: | :white_check_mark: |
+| /currentmatch* | GET    | :white_check_mark: | :white_check_mark: |
+| /newwebhook*   | POST   | :white_check_mark: | :white_check_mark: |
+
+*renamed
 
 
 ## GET Endpoints
