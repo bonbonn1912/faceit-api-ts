@@ -4,10 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "copy": "copyfiles -u 2 ./src/views/index.html ./dist/views/",
-    "prod": "set NODE_ENV=production && del-cli --force ./dist && tsc && cd ./src/client && npm run build && cd ../../dist/server && node index.js",
-    "env": "npm install && tsc && copyfiles -u 2 ./src/views/index.html ./dist/views/ && cd ./src/frontend && npm run build",
+    "env": "del-cli --force ./dist && tsc && cd ./src/client && npm run build",
+    "launch" : "cd ./dist/server/ && node index.js",
     "start": "npm install && set NODE_ENV=production && del-cli --force ./dist && tsc && cd ./src/client && npm run build && cd ../../dist/server && node index.js"
   },
   "repository": {
