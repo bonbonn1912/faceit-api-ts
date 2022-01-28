@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import PlayerCheck from '../components/PlayerCheck.vue'
+import PlayerCheck from '../components/PlayerCheck'
 var axios = require('axios');
 
 export default {
