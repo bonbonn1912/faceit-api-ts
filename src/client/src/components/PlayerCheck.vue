@@ -14,7 +14,13 @@
 <script>
 export default {
   name: "PlayerCheck",
-  methods : {
+  props: {
+    data : {
+      type: Object,
+      required: false
+    }
+  },
+   methods : {
     getTime(timestamp){
       var date = new Date(timestamp * 1000);
       var day = date.getDate();
@@ -25,12 +31,6 @@ export default {
       var time = day + '/' + month + '/' + year + ' ' + hours + ':' + minutes.substr(-2);
       return time;
     }
-  },
-  props: {
-    data : {
-      type: Object,
-      required: false
-    }
-  },
+  }
 };
 </script>

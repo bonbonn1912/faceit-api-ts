@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import LandingPage from '../views/LandingPage.vue'
 import Setup from '../views/Setup.vue'
-import PlayerCheck from '../components/PlayerCheck.vue'
 
 const routes = [
   {
