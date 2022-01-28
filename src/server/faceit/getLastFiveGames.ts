@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
-import { SECRETS } from '../config/env';
+import { SECRETS } from '../../config/env';
 
 export default async function getLastFiveGames(user_id: string): Promise<string> {
     const url = `https://open.faceit.com/data/v4/players/${user_id}/stats/csgo`;

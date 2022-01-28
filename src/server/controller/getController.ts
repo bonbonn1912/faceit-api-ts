@@ -1,12 +1,13 @@
 import { Request, Response } from 'express';
-import getPlayerInfo from '../faceitApi/getFaceitId';
-import getMatchHistory from '../faceitApi/getFaceitHistory';
-import getLastFiveGames from '../faceitApi/getLastFiveGames';
+import getPlayerInfo from '../faceit/getFaceitId';
+import getMatchHistory from '../faceit/getFaceitHistory';
+import getLastFiveGames from '../faceit/getLastFiveGames';
 import getAnswerString from '../response/eloResponse';
 import {getMatchroom} from './matchroom'
 import { PlayerModel } from '../interfaces/idModel';
 import * as check from './checkQueryParameter';
 import { AxiosResponse } from 'axios';
+import getPlayerEntries from '../firestore/getLastPlayers';
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -77,4 +78,14 @@ export const getMatch = (req: Request, res: Response) => {
     console.log("trying to key match with key: " + req.query.key)
     var answer:string | undefined = getMatchroom(req.query.key as string);
     res.send(answer)
+}
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+export const getLastMatches = (req: Request, res: Response) => {
+    getPlayerEntries().then((data: any) => {
+        res.send(data);
+    });
 }

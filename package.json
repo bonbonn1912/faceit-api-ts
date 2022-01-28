@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "copy": "copyfiles -u 2 ./src/views/index.html ./dist/views/",
-    "build": "tsc && copyfiles -u 2 ./src/views/index.html ./dist/views/",
-    "start": "node ./dist/index.js"
+    "copy": "copyfiles -u 3 ./src/server/firestore/firestoreenv.json ./dist/server/firestore/",
+    "env": "del-cli --force ./dist && tsc && cd ./src/client && npm run build && cd .. && cd.. && copyfiles -u 3 ./src/server/firestore/firestoreenv.json ./dist/server/firestore/",
+    "launch": "cd ./dist/server/ && node index.js",
+    "build": "del-cli --force ./dist && tsc && cd ./src/client && npm run build && cd .. && cd .. && copyfiles -u 3 ./src/server/firestore/firestoreenv.json ./dist/server/firestore/",
+    "start": "npm install && set NODE_ENV=production && cd ./dist/server/ && node index.js"
   },
   "repository": {
     "type": "git",
@@ -20,15 +21,48 @@
   },
   "homepage": "https://github.com/bonbonn1912/faceit-api-ts#readme",
   "dependencies": {
+    "@babel/core": "^7.16.12",
+    "@babel/preset-env": "^7.16.11",
+    "@google-cloud/firestore": "^5.0.2",
+    "@tailwindcss/postcss7-compat": "^2.2.17",
     "@types/body-parser": "^1.19.2",
+    "@types/cors": "^2.8.12",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "autoprefixer": "^9",
     "axios": "^0.25.0",
+    "babel-eslint": "^10.1.0",
     "body-parser": "^1.19.1",
+    "core-js": "^3.6.5",
+    "cors": "^2.8.5",
+    "del-cli": "^4.0.1",
     "dotenv": "^14.2.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^7.0.0",
     "express": "^4.17.2",
-    "typescript": "^4.5.4"
+    "postcss": "^7",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17",
+    "typescript": "^4.5.4",
+    "vue": "^3.0.0",
+    "vue-cli-plugin-tailwind": "~2.2.18",
+    "vue-router": "^4.0.0-0"
   },
   "devDependencies": {
+    "@tailwindcss/postcss7-compat": "^2.2.17",
+    "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
-    "copyfiles": "^2.4.1"
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "babel-eslint": "^10.1.0",
+    "copyfiles": "^2.4.1",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^7.0.0",
+    "vue-cli-plugin-tailwind": "~2.2.18"
   }
 }

@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
-import { SECRETS } from '../config/env';
+import { SECRETS } from '../../config/env';
 
 export function getMatchFromFaceit(match_id :string) : any{
     return new Promise((resolve, reject) => {
