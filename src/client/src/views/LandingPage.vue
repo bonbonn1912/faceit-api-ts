@@ -1,8 +1,8 @@
 <template>
   <div class="rahmen bg-gray-600 w-screen h-screen flex felx-row">
     <div class="LeftHalf w-1/2 h-full bg-gray-600 flex flex-col justify-center items-center">
-      <div class="titel flex w-1/2 font-bold text-lg text-white">Last 10 Requests</div>
-      <div class="last10 w-1/2 h-4/5 bg-gray-700 overflow-auto rounded-xl">
+      <div class="titel flex w-1/2 font-bold text-lg text-white">Last 8 Requests</div>
+      <div class="last10 w-1/2 h-3/4 bg-gray-700 overflow-auto rounded-xl py-2">
            <PlayerCheck v-for="entry in last10" v-bind:key="entry" :data="entry" />
       </div>
     

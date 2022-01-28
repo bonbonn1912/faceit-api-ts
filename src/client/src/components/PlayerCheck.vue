@@ -2,7 +2,7 @@
 <div class="frame bg-gray-700 border-2 rounded-xl flex my-2 px-2 mx-2 items-center">
   <div class="image">
     <a :href="data.player.url">
- <img :src="data.player.avatar" class="object-fill h-20 w-20 my-1 rounded-2xl"/>
+ <img :src="data.player.avatar" class="h-16 w-16 my-1 rounded-2xl"/>
     </a>
  </div>
  <div class="info flex flex-col px-2 text-white font-thin"> <p> Username: {{ data.player.username}}  </p> <p> Elo: {{ data.player.elo}}  </p> <p>Time: {{getTime(data.timestamp._seconds)}} </p>
