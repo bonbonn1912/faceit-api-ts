@@ -3,4 +3,6 @@ export interface PlayerModel {
     id: string,
     username: string,
     elo: number,
+    avatar: string, 
+    url: string,
 }

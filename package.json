@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "copy": "copyfiles -u 2 ./src/views/index.html ./dist/views/",
-    "env": "del-cli --force ./dist && tsc && cd ./src/client && npm run build",
-    "launch" : "cd ./dist/server/ && node index.js",
+    "copy": "copyfiles -u 3 ./src/server/firestore/firestoreenv.json ./dist/server/firestore/",
+    "env": "del-cli --force ./dist && tsc && cd ./src/client && npm run build && cd .. && cd.. && copyfiles -u 3 ./src/server/firestore/firestoreenv.json ./dist/server/firestore/",
+    "launch": "cd ./dist/server/ && node index.js",
     "start": "npm install && set NODE_ENV=production && del-cli --force ./dist && tsc && cd ./src/client && npm run build && cd ../../dist/server && node index.js"
   },
   "repository": {
@@ -22,8 +22,10 @@
   "dependencies": {
     "@babel/core": "^7.16.12",
     "@babel/preset-env": "^7.16.11",
+    "@google-cloud/firestore": "^5.0.2",
     "@tailwindcss/postcss7-compat": "^2.2.17",
     "@types/body-parser": "^1.19.2",
+    "@types/cors": "^2.8.12",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-router": "~4.5.0",
@@ -35,7 +37,6 @@
     "body-parser": "^1.19.1",
     "core-js": "^3.6.5",
     "cors": "^2.8.5",
-    "@types/cors": "^2.8.12",
     "del-cli": "^4.0.1",
     "dotenv": "^14.2.0",
     "eslint": "^6.7.2",

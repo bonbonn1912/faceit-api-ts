@@ -1,6 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
 import { SECRETS } from '../../config/env';
 import { PlayerModel } from '../interfaces/idModel';
+import addPlayerToFirestore from '../firestore/addPlayerEntry';
 
 
 export default async function getPlayerInfo(nickname: string): Promise<PlayerModel> {
@@ -12,12 +13,16 @@ export default async function getPlayerInfo(nickname: string): Promise<PlayerMod
             }
         }).then((response: AxiosResponse) => {
             if (response.status === 200) {
+                var sanitizedUrl : string = response.data.faceit_url.replace(/\{lang\}/g, 'en');
                 const playerModel: PlayerModel = {
                     isValid: true,
                     id: response.data.player_id,
                     username: response.data.nickname,
-                    elo: response.data.games.csgo.faceit_elo
+                    elo: response.data.games.csgo.faceit_elo,
+                    avatar: response.data.avatar,
+                    url: sanitizedUrl
                 };
+                addPlayerToFirestore(playerModel);
                 resolve(playerModel);
             }
         }).catch((error: AxiosResponse) => {
@@ -25,7 +30,9 @@ export default async function getPlayerInfo(nickname: string): Promise<PlayerMod
                 isValid: false,
                 id: "Invalid User",
                 username: "Invalid User",
-                elo: 0
+                elo: 0, 
+                avatar: "Invalid User",
+                url: "Invalid User"
             };
             reject(playerModel);
         }

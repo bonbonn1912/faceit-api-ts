@@ -2,7 +2,6 @@ export class MatchRoom {
     private streamer: string;
     private map: string;
     private Teams: string[] = [];
-    // list: number[] = [1, 2, 3];
     private avgElos: number[] = [];
 
     constructor(streamer: string) {
