@@ -24,6 +24,9 @@ app.get("/internal/api/getallcurrentgames", getController.getLastMatches);
 
 app.post("/match", postController.registerMatchroom);
 
+app.get("/setup", defaultController.handleSetup);
+
 app.get("/", defaultController.handleRoute);
+
 
 export = app;
