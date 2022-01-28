@@ -7,7 +7,8 @@
     "copy": "copyfiles -u 3 ./src/server/firestore/firestoreenv.json ./dist/server/firestore/",
     "env": "del-cli --force ./dist && tsc && cd ./src/client && npm run build && cd .. && cd.. && copyfiles -u 3 ./src/server/firestore/firestoreenv.json ./dist/server/firestore/",
     "launch": "cd ./dist/server/ && node index.js",
-    "start": "npm install && set NODE_ENV=production && del-cli --force ./dist && tsc && cd ./src/client && npm run build && cd ../../dist/server && node index.js"
+    "build": "del-cli --force ./dist && tsc && cd ./src/client && npm run build && cd .. && cd.. && copyfiles -u 3 ./src/server/firestore/firestoreenv.json ./dist/server/firestore/",
+    "start": "npm install && set NODE_ENV=production && cd ./dist/server/ && node index.js"
   },
   "repository": {
     "type": "git",
