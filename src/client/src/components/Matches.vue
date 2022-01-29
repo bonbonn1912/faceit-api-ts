@@ -1,7 +1,7 @@
 <template>
+<a :href="getImageUrl(data.match_id)"> 
   <div
-    class="frame bg-gray-700 border-2 rounded-xl flex my-4 px-2 mx-2 items-center"
-  >
+    class="frame bg-gray-700 border-2 rounded-xl flex my-4 px-2 mx-2 items-center">
     <div class="image">
       <img :src="getMap(data.match.map[0])" class="my-1 h-20 rounded-xl" />
     </div>
@@ -17,6 +17,7 @@
       />
     </div>
   </div>
+</a>
 </template>
 <script>
 export default {
@@ -28,29 +29,12 @@ export default {
     },
   },
   methods: {
+      getImageUrl(id){
+          console.log(id);
+        return `https://www.faceit.com/en/csgo/room/${id}`
+      },
     getMap(map) {
-      switch (map) {
-        case "de_mirage":
-          return "https://cdn.faceit.com/static/stats_assets/csgo/maps/110x55/csgo-votable-maps-de_mirage-110x55.jpg";
-        case "de_cache":
-          return "https://cdn.faceit.com/static/stats_assets/csgo/maps/110x55/csgo-votable-maps-de_cache-110x55.jpg";
-        case "de_overpass":
-          return "https://cdn.faceit.com/static/stats_assets/csgo/maps/110x55/csgo-votable-maps-de_overpass-110x55.jpg";
-        case "de_train":
-          return "https://cdn.faceit.com/static/stats_assets/csgo/maps/110x55/csgo-votable-maps-de_train-110x55.jpg";
-        case "de_dust2":
-          return "https://cdn.faceit.com/static/stats_assets/csgo/maps/110x55/csgo-votable-maps-de_dust2-110x55.jpg";
-        case "de_inferno":
-          return "https://cdn.faceit.com/static/stats_assets/csgo/maps/110x55/csgo-votable-maps-de_inferno-110x55.jpg";
-        case "de_nuke":
-          return "https://cdn.faceit.com/static/stats_assets/csgo/maps/110x55/csgo-votable-maps-de_nuke-110x55.jpg";
-        case "de_cbble":
-          return "https://cdn.faceit.com/static/stats_assets/csgo/maps/110x55/csgo-votable-maps-de_cbble-110x55.jpg";
-        case "de_ancient":
-          return "https://cdn.faceit.com/static/stats_assets/csgo/maps/110x55/csgo-votable-maps-de_ancient-110x55.jpg";
-        case "de_vertigo":
-          return "https://cdn.faceit.com/static/stats_assets/csgo/maps/110x55/csgo-votable-maps-de_vertigo-110x55.jpg";
-      }
+          return `https://cdn.faceit.com/static/stats_assets/csgo/maps/110x55/csgo-votable-maps-${map}-110x55.jpg`;
     },
     getTime(timestamp) {
       var date = new Date(timestamp * 1000);

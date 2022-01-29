@@ -67,6 +67,7 @@ export default {
       .then(response => {
         response.data.forEach((entry) =>{
           this.last5.push(entry);
+          console.log(entry)
         })
       })
       .catch(error => {
