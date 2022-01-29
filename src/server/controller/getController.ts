@@ -7,8 +7,7 @@ import {getMatchroom} from './matchroom'
 import { PlayerModel } from '../interfaces/idModel';
 import * as check from './checkQueryParameter';
 import { AxiosResponse } from 'axios';
-import getPlayerEntries from '../firestore/getLastPlayers';
-import getMatchEntries from '../firestore/getLastMatches';
+import { getMapCollection, getPlayerCollection } from '../interfaces/collectionData';
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -86,13 +85,9 @@ export const getMatch = (req: Request, res: Response) => {
 ////////////////////////////////////////////////////////////////////////////////
 
 export const getLastPlayers = (req: Request, res: Response) => {
-    getPlayerEntries().then((data: any) => {
-        res.send(data);
-    });
+    res.send(getPlayerCollection());
 }
 
 export const getLastMatches = (req: Request, res: Response) => {
-    getMatchEntries().then((data: any) => {
-        res.send(data);
-    });
+    res.send(getMapCollection());
 }
