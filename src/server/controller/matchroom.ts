@@ -17,6 +17,10 @@ export function createMatchroom(key: string, data: any): string {
     return key;
 }
 
+export function rawMatchroom(key:string) : any{
+    return activeMatches.get(key);
+}
+
 export async function setMap(key: string, game_id: string) {
     getMatchFromFaceit(game_id).then((data: any) => {
         console.log(data.voting.map.pick);
@@ -37,6 +41,7 @@ export function getMatchroom(key: string): string | undefined {
 function setTeamnames(teams: any, key: string): void {
     teams.forEach((singleTeam: any) => {
         activeMatches.get(key)?.addTeam(singleTeam.name);
+        activeMatches.get(key)?.setLogoUrl(singleTeam.avatar);
     })
 }
 

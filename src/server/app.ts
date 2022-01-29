@@ -20,7 +20,9 @@ app.get("/checkelo", getController.checkElo);
 
 app.get("/getmatch", getController.getMatch);
 
-app.get("/internal/api/getallcurrentgames", getController.getLastMatches);
+app.get("/internal/api/getLastPlayers", getController.getLastPlayers);
+
+app.get("/internal/api/getLastMatches", getController.getLastMatches);
 
 app.post("/match", postController.registerMatchroom);
 

@@ -1,8 +1,9 @@
 export class MatchRoom {
     private streamer: string;
     private map: string;
-    private Teams: string[] = [];
+    private teams: string[] = [];
     private avgElos: number[] = [];
+    private logo_urls : string[] = [];
 
     constructor(streamer: string) {
         this.streamer = streamer;
@@ -12,10 +13,24 @@ export class MatchRoom {
     getString(): string {
         console.log("getString");
         try{
-            return `${this.Teams[0]} (${this.avgElos[0]}) vs. ${this.Teams[1]} (${this.avgElos[1]}) on ${this.map}`;
+            return `${this.teams[0]} (${this.avgElos[0]}) vs. ${this.teams[1]} (${this.avgElos[1]}) on ${this.map}`;
         }catch(e){
             return `Invalid Matchroom please try again later`;
         }
+    }
+
+    getObject(): object{
+        return {
+            streamer: this.streamer,
+            map: this.map,
+            teams: this.teams,
+            avgElos: this.avgElos,
+            logo_urls: this.logo_urls
+        }
+    }
+
+    setLogoUrl(logo_url: string): void {
+        this.logo_urls.push(logo_url);
     }
 
     setMap(map: string): void {
@@ -24,7 +39,7 @@ export class MatchRoom {
     }
 
     addTeam(team: string): void {
-        this.Teams.push(team);
+        this.teams.push(team);
     }
 
     addAvgElo(elo: number): void {

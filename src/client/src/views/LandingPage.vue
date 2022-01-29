@@ -7,7 +7,11 @@
       </div>
     
     </div>
-     <div class="RightHalf w-1/2 h-full bg-gray-600">
+     <div class="RightHalf w-1/2 h-full bg-gray-600 flex flex-col justify-center items-center">
+      <div class="titel flex w-3/4 font-bold text-lg text-white items-center align-middle">Last 6 Matches</div>
+      <div class="last10 w-3/4 h-3/4 bg-gray-700 overflow-auto rounded-xl py-4">
+           <MatchRoom v-for="match in last5" v-bind:key="match" :data="match"/>
+      </div>
     </div>
     <div class="navbar w-full h-8 text-white font-bold text-xl fixed bottom-0 bg-gray-700 flex items-center justify-center">
       <router-link to="/setup">Setup</router-link>
@@ -24,6 +28,7 @@
 
 <script>
 import PlayerCheck from '../components/PlayerCheck'
+import MatchRoom from '../components/Matches'
 var axios = require('axios');
 
 export default {
@@ -32,23 +37,36 @@ export default {
     msg: String
   },
   components: {
-    PlayerCheck
+    PlayerCheck,
+    MatchRoom
   },
   data(){
     return  {
       last10: [],
+      last5: [],
     }
   },
   mounted(){
-    this.fetchData();
+    this.fetchPlayerData();
+    this.fetchMatchData();
   },
   methods: {
-    fetchData(){
-      axios.get('/internal/api/getallcurrentgames')
+    fetchPlayerData(){
+      axios.get('/internal/api/getLastPlayers')
       .then(response => {
         response.data.forEach((entry) =>{
           this.last10.push(entry);
-          console.log(entry);
+        })
+      })
+      .catch(error => {
+        console.log(error);
+      });
+    },
+    fetchMatchData(){
+      axios.get('/internal/api/getLastMatches')
+      .then(response => {
+        response.data.forEach((entry) =>{
+          this.last5.push(entry);
         })
       })
       .catch(error => {
