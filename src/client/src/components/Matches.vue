@@ -5,13 +5,15 @@
     <div class="image">
       <img :src="getMap(data.match.map[0])" class="my-1 h-20 rounded-xl" />
     </div>
-    <div class="info flex text-white w-full items-center justify-center">
+    <div class="info font-thin flex text-white w-full items-center justify-center">
       <img
         :src="data.match.logo_urls[0]"
         class="mx-2 w-16 h-16 my-1 rounded-2xl"
       />
-      {{ data.match.teams[0] }} ({{ data.match.avgElos[0] }}) vs.
-      {{ data.match.teams[1] }}({{ data.match.avgElos[1] }})<img
+      <div class="matchinfo flex flex-col items-center">
+        <p>    {{ data.match.teams[0] }} ({{ data.match.avgElos[0] }}) vs.
+      {{ data.match.teams[1] }} ({{ data.match.avgElos[1] }}) </p> started at: {{getStartTime(data.timestamp._seconds)}} </div>
+    <img
         :src="data.match.logo_urls[1]"
         class="mx-2 w-16 h-16 my-1 rounded-2xl"
       />
@@ -29,6 +31,16 @@ export default {
     },
   },
   methods: {
+      getStartTime(timestamp){
+      var date = new Date(timestamp * 1000);
+      var day = date.getDate();
+      var month = date.getMonth() + 1;
+      var year = date.getFullYear();
+      var hours = date.getHours();
+      var minutes = "0" + date.getMinutes();
+      var time = day + '/' + month + '/' + year + ' ' + hours + ':' + minutes.substr(-2);
+      return time;
+    },
       getImageUrl(id){
           console.log(id);
         return `https://www.faceit.com/en/csgo/room/${id}`
