@@ -1,4 +1,5 @@
 import { Request , Response } from 'express';
+import addMatchToFirestore from '../firestore/addMatchEntry';
 import {createMatchroom , setMap, setAvgElo , closeMatchroom} from './matchroom';
 
 export const  registerMatchroom =  (req: Request, res: Response) => {
@@ -7,6 +8,9 @@ export const  registerMatchroom =  (req: Request, res: Response) => {
       res.send(key);
       setMap(key, req.body.payload.id);
       setAvgElo(key, req.body.payload.id);
+      setTimeout(() => {
+          addMatchToFirestore(key,req.body.payload.id);
+      },5000)
     }else if(req.body.event !== 'match_object_created'){
         closeMatchroom(req.headers.authorization as string)
         res.send("Match has been closed");

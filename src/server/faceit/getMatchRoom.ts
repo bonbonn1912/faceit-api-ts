@@ -13,7 +13,7 @@ export function getMatchFromFaceit(match_id :string) : any{
                 resolve(res.data);
             })
             .catch((error) => {
-                reject(error.message);
+                reject("ALARM");
             })
     })
 
