@@ -12,7 +12,7 @@
       />
       <div class="matchinfo flex flex-col items-center">
         <p>    {{ data.match.teams[0] }} ({{ data.match.avgElos[0] }}) vs.
-      {{ data.match.teams[1] }} ({{ data.match.avgElos[1] }}) </p> started at: {{getStartTime(data.timestamp._seconds)}} </div>
+      {{ data.match.teams[1] }} ({{ data.match.avgElos[1] }}) </p>  <p v-if="data.match.isRunning">started at: {{getStartTime(data.timestamp._seconds)}} </p> <p v-else>Match finished</p></div>
     <img
         :src="data.match.logo_urls[1]"
         class="mx-2 w-16 h-16 my-1 rounded-2xl"

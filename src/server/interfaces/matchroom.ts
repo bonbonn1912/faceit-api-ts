@@ -25,7 +25,8 @@ export class MatchRoom {
             map: this.map,
             teams: this.teams,
             avgElos: this.avgElos,
-            logo_urls: this.logo_urls
+            logo_urls: this.logo_urls,
+            isRunning : true
         }
     }
 
