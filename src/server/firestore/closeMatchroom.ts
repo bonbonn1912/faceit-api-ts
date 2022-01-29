@@ -4,14 +4,12 @@ const Client = new FirestoreClient();
 const db = Client.firestore;
 
 export default async function closeMatchRoomInFirestore(documentid: string)  {
-    console.log(documentid);
-    try{
       db.collection('matches').doc(documentid).update({
         [`match.isRunning`]: false
+      }).catch(function(error : string) {
+        console.log("Error updating document");
       });
-    }catch(e){
-      console.log("Dokument konnte nicht gelöscht werden");
-    }
+   
    
 };
 
