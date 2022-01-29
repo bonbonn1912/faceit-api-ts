@@ -55,6 +55,9 @@ export default {
       axios.get('/internal/api/getLastPlayers')
       .then(response => {
         response.data.forEach((entry) =>{
+          if(entry.player.avatar == ""){
+            entry.player.avatar = "https://i.imgur.com/goxT1jr.png";
+          }
           this.last10.push(entry);
         })
       })
@@ -66,8 +69,15 @@ export default {
       axios.get('/internal/api/getLastMatches')
       .then(response => {
         response.data.forEach((entry) =>{
+         
+          if(entry.match.logo_urls[0] == ''){
+            entry.match.logo_urls[0] = "https://i.imgur.com/goxT1jr.png";
+          }
+          if(entry.match.logo_urls[1] == ''){
+            entry.match.logo_urls[1] = "https://i.imgur.com/goxT1jr.png";
+          }
           this.last5.push(entry);
-          console.log(entry.match.isRunning)
+  
         })
       })
       .catch(error => {
