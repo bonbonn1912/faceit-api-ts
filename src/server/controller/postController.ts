@@ -15,7 +15,7 @@ export const  registerMatchroom =  (req: Request, res: Response) => {
       },5000)
       setTimeout(() => {
         initMapCollection();
-    },1000)
+    },6000)
     }else if(req.body.event !== 'match_object_created'){
         closeMatchroom(req.headers.authorization as string)
         closeMatchRoomInFirestore(req.body.payload.id as string);
