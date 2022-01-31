@@ -67,7 +67,7 @@ export default {
   methods: {
     createWebsocket() {
       console.log("creating websocket connection");
-      this.connection = new WebSocket("ws://localhost:9999");
+      this.connection = new WebSocket("wss://webrtc-filetransfer.herokuapp.com/");
       this.connection.onmessage =  () => {
         this.fetchPlayerData();
         this.fetchMatchData();
