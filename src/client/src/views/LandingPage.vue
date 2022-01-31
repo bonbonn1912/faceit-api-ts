@@ -67,7 +67,7 @@ export default {
   methods: {
     createWebsocket() {
       console.log("creating websocket connection");
-      this.connection = new WebSocket("wss://bonbonn-faceitapi-env.herokuapp.com/");
+      this.connection = new WebSocket("wss://bonbonn-faceitapi.herokuapp.com/");
       this.connection.onmessage =  () => {
         setTimeout(() => {
           this.fetchPlayerData();
