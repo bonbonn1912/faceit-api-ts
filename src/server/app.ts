@@ -22,7 +22,7 @@ const wss = new WebSocket.Server({ server });
     wss.on('connection', (ws: WebSocket) =>{
 
         setInterval(() => {
-            ws.send("keep alive");
+            ws.emit('keep alive');
         },30000);
 
         eventEmitter.on('sendToClient', () => {
