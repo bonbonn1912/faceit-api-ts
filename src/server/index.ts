@@ -1,4 +1,4 @@
-import app from './app';
+import server from './app';
 import { initMapCollection, initPlayerCollection } from './interfaces/collectionData';
 
 import { SECRETS } from '../config/env';
@@ -11,4 +11,4 @@ initPlayerCollection();
 initMapCollection();
 
 
-app.listen(PORT, ()=>{console.log('listening on port '+PORT + ' running in : ' +process.env.NODE_ENV)});
+server.listen(PORT, ()=>{console.log('listening on port '+PORT + ' running in : ' +process.env.NODE_ENV)});

@@ -1,11 +1,31 @@
 import express, { Application } from "express";
+
+import { eventEmitter } from '../server/ws/eventEmitter';
+import { getMapCollection } from '../server/interfaces/collectionData';
+import { getPlayerCollection } from '../server/interfaces/collectionData';
 import * as defaultController from "./controller/default";
 import * as getController from "./controller/getController";
 import * as postController from "./controller/postController";
+import * as http from "http";
+import * as WebSocket from "ws";
+
 import cors from "cors";
 import bodyParser from "body-parser";
 
+
 var app: Application = express();
+
+const server = http.createServer(app);
+
+
+const wss = new WebSocket.Server({ server });
+    wss.on('connection', (ws: WebSocket) =>{
+
+        eventEmitter.on('sendToClient', () => {
+        ws.send("update");         
+        })
+
+    });
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -31,4 +51,4 @@ app.get("/setup", defaultController.handleSetup);
 app.get("/", defaultController.handleRoute);
 
 
-export = app;
+export = server;

@@ -48,7 +48,6 @@ export default {
       return time;
     },
       getImageUrl(id){
-          console.log(id);
         return `https://www.faceit.com/en/csgo/room/${id}`
       },
     getMap(map) {
