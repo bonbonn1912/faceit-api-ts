@@ -69,8 +69,10 @@ export default {
       console.log("creating websocket connection");
       this.connection = new WebSocket("wss://bonbonn-faceitapi-env.herokuapp.com/");
       this.connection.onmessage =  () => {
-        this.fetchPlayerData();
-        this.fetchMatchData();
+        setInterval(() => {
+          this.fetchPlayerData();
+          this.fetchMatchData();
+        }, 3000);
       };
       this.connection.onopen = function () {
         console.log("ws connection open");
