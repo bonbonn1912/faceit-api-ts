@@ -68,7 +68,7 @@ export default {
     createWebsocket() {
       console.log("creating websocket connection");
       this.connection = new WebSocket("wss://bonbonn-faceitapi.herokuapp.com/");
-      this.connection.$on("keep_alive", () => {
+      this.connection.on("keep_alive", () => {
         console.log("keep alive");
       });
       this.connection.onmessage =  () => {
