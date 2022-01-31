@@ -21,6 +21,10 @@ const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
     wss.on('connection', (ws: WebSocket) =>{
 
+        setInterval(() => {
+            ws.send("keep alive");
+        },30000);
+
         eventEmitter.on('sendToClient', () => {
         ws.send("update");         
         })
