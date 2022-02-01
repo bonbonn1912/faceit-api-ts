@@ -60,7 +60,7 @@ export default {
   },
   created() {
    // this.createWebsocket();
-    this.connection = io('http://localhost:9999');
+    this.connection = io();
     this.connection.on('connect', () => {
       this.connection.on('keepAlive', () => {
       });
