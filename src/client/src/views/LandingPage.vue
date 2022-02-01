@@ -39,6 +39,7 @@
 <script>
 import PlayerCheck from "../components/PlayerCheck";
 import MatchRoom from "../components/Matches";
+import { io } from 'socket.io-client';
 var axios = require("axios");
 
 export default {
@@ -58,29 +59,22 @@ export default {
     };
   },
   created() {
-    this.createWebsocket();
+   // this.createWebsocket();
+    this.connection = io('http://localhost:9999');
+    this.connection.on('connect', () => {
+      this.connection.on('keepAlive', () => {
+      });
+      this.connection.on('fetchData', () => {
+        this.fetchPlayerData();
+         this.fetchMatchData();
+      })
+    });
   },
   mounted() {
     this.fetchPlayerData();
     this.fetchMatchData();
   },
   methods: {
-    createWebsocket() {
-      console.log("creating websocket connection");
-      this.connection = new WebSocket("wss://bonbonn-faceitapi.herokuapp.com/");
-      this.connection.addEventListener("keep_alive", () => {
-        console.log("keep alive");
-      });
-      this.connection.onmessage =  () => {
-        setTimeout(() => {
-          this.fetchPlayerData();
-          this.fetchMatchData();
-        }, 3000);
-      };
-      this.connection.onopen = function () {
-        console.log("ws connection open");
-      };
-    },
     fetchPlayerData() {
       this.last10 = [];
       axios

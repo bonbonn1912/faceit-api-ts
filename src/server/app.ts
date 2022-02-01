@@ -7,7 +7,7 @@ import * as defaultController from "./controller/default";
 import * as getController from "./controller/getController";
 import * as postController from "./controller/postController";
 import * as http from "http";
-import * as WebSocket from "ws";
+import { Server } from 'socket.io';
 
 import cors from "cors";
 import bodyParser from "body-parser";
@@ -18,18 +18,20 @@ var app: Application = express();
 const server = http.createServer(app);
 
 
-const wss = new WebSocket.Server({ server });
-    wss.on('connection', (ws: WebSocket) =>{
+const io = new Server(server);
 
-        setInterval(() => {
-            ws.emit('keep alive');
-        },30000);
+io.on('connection', (socket) => {
+    setInterval(() => {
+        socket.emit('keepAlive');
+    },45000)
 
-        eventEmitter.on('sendToClient', () => {
-        ws.send("update");         
-        })
-
+    eventEmitter.on('sendToClient', () => {
+        socket.emit('fetchData');
     });
+
+});
+
+
 
 app.use(cors());
 app.use(bodyParser.json());
