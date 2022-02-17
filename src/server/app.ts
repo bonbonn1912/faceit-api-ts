@@ -1,11 +1,37 @@
 import express, { Application } from "express";
+
+import { eventEmitter } from '../server/ws/eventEmitter';
+import { getMapCollection } from '../server/interfaces/collectionData';
+import { getPlayerCollection } from '../server/interfaces/collectionData';
 import * as defaultController from "./controller/default";
 import * as getController from "./controller/getController";
 import * as postController from "./controller/postController";
+import * as http from "http";
+import { Server } from 'socket.io';
+
 import cors from "cors";
 import bodyParser from "body-parser";
 
+
 var app: Application = express();
+
+const server = http.createServer(app);
+
+
+const io = new Server(server);
+
+io.on('connection', (socket) => {
+    setInterval(() => {
+        socket.emit('keepAlive');
+    },45000)
+
+    eventEmitter.on('sendToClient', () => {
+        socket.emit('fetchData');
+    });
+
+});
+
+
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -31,4 +57,4 @@ app.get("/setup", defaultController.handleSetup);
 app.get("/", defaultController.handleRoute);
 
 
-export = app;
+export = server;
