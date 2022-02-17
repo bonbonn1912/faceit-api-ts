@@ -86,11 +86,14 @@ export default {
           }
             this.last10.push(entry);
           });
+last10.push(entry);
+
         })
         .catch((error) => {
           console.log(error);
         });
     },
+
     fetchMatchData() {
       this.last5 = [];
       axios
@@ -98,13 +101,16 @@ export default {
         .then((response) => {
           response.data.forEach((entry) => {
               if(entry.match.logo_urls[0] == ''){
+
             entry.match.logo_urls[0] = "https://i.imgur.com/goxT1jr.png";
           }
           if(entry.match.logo_urls[1] == ''){
             entry.match.logo_urls[1] = "https://i.imgur.com/goxT1jr.png";
           }
-            this.last5.push(entry);
-          });
+
+          this.last5.push(entry);
+  
+
         })
         .catch((error) => {
           console.log(error);
