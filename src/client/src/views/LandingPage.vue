@@ -86,7 +86,7 @@ export default {
           }
             this.last10.push(entry);
           });
-last10.push(entry);
+
 
         })
         .catch((error) => {
@@ -109,15 +109,15 @@ last10.push(entry);
           }
 
           this.last5.push(entry);
-  
 
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    },
-  },
-};
+  })
+      })
+      .catch(error => {
+        console.log(error);
+      });
+    }
+  }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
