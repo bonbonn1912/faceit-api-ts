@@ -50,9 +50,13 @@ app.get("/internal/api/getLastPlayers", getController.getLastPlayers);
 
 app.get("/internal/api/getLastMatches", getController.getLastMatches);
 
+app.post("/internal/api/getMultiplePlayers", postController.getMultiplePlayers);
+
 app.post("/match", postController.registerMatchroom);
 
 app.get("/setup", defaultController.handleSetup);
+
+
 
 app.get("/", defaultController.handleRoute);
 
