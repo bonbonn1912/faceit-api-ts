@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
 import { SECRETS } from '../../config/env';
 import { PlayerModel } from '../interfaces/idModel';
-import addPlayerToFirestore from '../firestore/addPlayerEntry';
+import {addPlayerToFirestore} from '../firestore/addPlayerEntry';
 
 
 export default async function getPlayerInfo(nickname: string): Promise<PlayerModel> {

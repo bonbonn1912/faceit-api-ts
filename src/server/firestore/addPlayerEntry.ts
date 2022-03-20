@@ -5,11 +5,19 @@ import { initPlayerCollection } from "../interfaces/collectionData";
 const Client = new FirestoreClient();
 const db = Client.firestore;
 
-export default async function addPlayerToFirestore(player: PlayerModel)  {
+export async function addPlayerToFirestore(player: PlayerModel)  {
     const res = await db.collection('players').add({player : player, timestamp: new Date()});
     initPlayerCollection();
     console.log(res.id);
 };
+
+export async function addMultiplePlayers(players: any[]) {
+    await Promise.all(players.map(async (player: any) => {
+        const res = await db.collection('consoleelo').add({player : player, timestamp: new Date()});
+        console.log(res.id);
+    }));
+}
+
 
 
 

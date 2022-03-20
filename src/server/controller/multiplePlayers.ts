@@ -1,5 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 import { SECRETS } from '../../config/env';
+import { addMultiplePlayers } from '../firestore/addPlayerEntry';
 
 export default async function getMultiplePlayersByID(players : any){
     let newPlayers : any = [];
@@ -8,6 +9,7 @@ export default async function getMultiplePlayersByID(players : any){
         player.elo = eloResp;
         newPlayers.push(player);
        })); 
+    addMultiplePlayers(newPlayers);
     return newPlayers;
 }
 
