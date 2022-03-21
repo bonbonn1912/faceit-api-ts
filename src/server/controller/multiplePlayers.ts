@@ -9,7 +9,7 @@ export default async function getMultiplePlayersByID(players : any){
         player.elo = eloResp;
         newPlayers.push(player);
        })); 
-    addMultiplePlayers(newPlayers);
+  //  addMultiplePlayers(newPlayers);
     return newPlayers;
 }
 
