@@ -4,7 +4,7 @@ import closeMatchRoomInFirestore from '../firestore/closeMatchroom';
 import { initMapCollection } from '../interfaces/collectionData';
 import {createMatchroom , setMap, setAvgElo , closeMatchroom} from './matchroom';
 import getMultiplePlayersByID from './multiplePlayers';
-import { addMultiplePlayers } from '../firestore/addPlayerEntry';
+
 
 export const  registerMatchroom =  (req: Request, res: Response) => {
     if(isNewGame(req.body.event)){
@@ -32,10 +32,7 @@ export const  registerMatchroom =  (req: Request, res: Response) => {
 }
 
 export const getMultiplePlayers = async (req: Request, res: Response) => {
-   if(req.body.meta.env == "production"){
-    addMultiplePlayers(req.body);
-   }
-   let newPlayers : any = await getMultiplePlayersByID(req.body.players);
+   let newPlayers : any = await getMultiplePlayersByID(req.body);
    res.send(newPlayers);
 }
 

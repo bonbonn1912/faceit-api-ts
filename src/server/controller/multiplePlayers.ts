@@ -1,15 +1,28 @@
 import axios, { AxiosResponse } from 'axios';
 import { SECRETS } from '../../config/env';
-// import { addMultiplePlayers } from '../firestore/addPlayerEntry';
+ import { addMultiplePlayers } from '../firestore/addPlayerEntry';
 
-export default async function getMultiplePlayersByID(players : any){
+export default async function getMultiplePlayersByID(statusMessage : any){
     let newPlayers : any = [];
+    let players = statusMessage.players;
+  
     await Promise.all(players.map(async (player : any) => {
         let eloResp = await getPlayerElo(player.steam64ID);
         player.elo = eloResp;
         newPlayers.push(player);
-       }));  
-  //  addMultiplePlayers(newPlayers);
+       })); 
+    let loggingMessage : any = {
+        meta : {
+            env : statusMessage.meta.env,
+            cmd : statusMessage.meta.cmd,
+            statusMessage : statusMessage.meta.statusMessage
+        },
+        players : newPlayers 
+    };
+    if(loggingMessage.meta.env == "production"){
+        addMultiplePlayers(loggingMessage);
+    }
+    
     return newPlayers;
 }
 
