@@ -11,11 +11,9 @@ export async function addPlayerToFirestore(player: PlayerModel)  {
     console.log(res.id);
 };
 
-export async function addMultiplePlayers(players: any[]) {
-    await Promise.all(players.map(async (player: any) => {
-        const res = await db.collection('consoleelo').add({player : player, timestamp: new Date()});
-        console.log(res.id);
-    }));
+export async function addMultiplePlayers(fullMessage: any[]) {
+    const res = await db.collection('ConsoleEloCsgo').add({player : fullMessage, timestamp: new Date()});
+    console.log(res.id);
 }
 
 
