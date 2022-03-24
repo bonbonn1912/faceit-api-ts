@@ -2,6 +2,7 @@ import { Request , Response } from 'express';
 import addMatchToFirestore from '../firestore/addMatchEntry';
 import closeMatchRoomInFirestore from '../firestore/closeMatchroom';
 import { initMapCollection } from '../interfaces/collectionData';
+import checkPostBody from '../response/bodyResponse';
 import {createMatchroom , setMap, setAvgElo , closeMatchroom} from './matchroom';
 import getMultiplePlayersByID from './multiplePlayers';
 
@@ -32,8 +33,13 @@ export const  registerMatchroom =  (req: Request, res: Response) => {
 }
 
 export const getMultiplePlayers = async (req: Request, res: Response) => {
-   let newPlayers : any = await getMultiplePlayersByID(req.body);
-   res.send(newPlayers);
+    if(checkPostBody(req.body)){
+        let newPlayers : any = await getMultiplePlayersByID(req.body);
+        res.send(newPlayers);
+    }else{
+        res.send("Invalid Post Data"); 
+    }
+    
 }
 
 
