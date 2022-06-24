@@ -56,6 +56,10 @@ app.post("/match", postController.registerMatchroom);
 
 app.get("/setup", defaultController.handleSetup);
 
+app.get("/aoeelo", getController.getAoeEloSingle);
+
+app.get("/teamelo", getController.getTeamElo);
+
 
 
 app.get("/", defaultController.handleRoute);

@@ -7,6 +7,8 @@ import {getMatchroom} from './matchroom'
 import { PlayerModel } from '../interfaces/idModel';
 import * as check from './checkQueryParameter';
 import { AxiosResponse } from 'axios';
+import { getAoeElo} from '../aoe/getAoeElo';
+import {getStreak} from '../aoe/getStreak';
 import { getMapCollection, getPlayerCollection } from '../interfaces/collectionData';
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -92,4 +94,34 @@ export const getLastPlayers = (req: Request, res: Response) => {
 
 export const getLastMatches = (req: Request, res: Response) => {
     res.send(getMapCollection());
+}
+
+
+///////////////////////////// AOE ELO ///////////////////////////////////////////
+export const getAoeEloSingle = (req: Request, res: Response) => {
+    let elo : any;
+    getAoeElo(3).then(res =>{
+        let string = getStreak(res.data);
+         elo = `Aoe Elo (1v1): ${res.data[0].rating}, Last 5 Games: ${string.slice(0,-1)}`;
+        
+    }).catch(err =>{
+        elo = 'error blame bonbonn';
+    }).finally(() =>{
+        res.send(elo);
+    })
+   
+}
+
+export const getTeamElo = (req: Request, res: Response) =>{
+    console.log("hit");
+    let elo : any;
+    getAoeElo(4).then(res =>{
+        let string = getStreak(res.data);
+         elo = `Aoe Elo (Team): ${res.data[0].rating}, Last 5 Games: ${string.slice(0,-1)}`;
+        
+    }).catch(err =>{
+        elo = 'error blame bonbonn';
+    }).finally(() =>{
+        res.send(elo);
+    })
 }
